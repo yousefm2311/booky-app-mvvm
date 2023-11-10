@@ -9,7 +9,7 @@ class RoundedClipper extends CustomClipper<Path> {
       size.width / 2,
       size.height,
       size.width,
-      size.height -  90,
+      size.height - 90,
     );
     path.lineTo(size.width, 0.0);
     path.close();

@@ -9,21 +9,24 @@ class CustomTextFormField extends StatelessWidget {
       required this.prefixIcon,
       this.suffixIcon,
       required this.controller,
-      required this.obscureText});
+      required this.obscureText, this.textInputType});
   final String hintText;
   final Icon prefixIcon;
   final Widget? suffixIcon;
   final TextEditingController controller;
   final bool obscureText;
+  final TextInputType? textInputType;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
+        keyboardType: textInputType,
         style: Styles.textStyle16,
         obscureText: obscureText,
         controller: controller,
         decoration: InputDecoration(
+          
             hintText: hintText,
             prefixIcon: prefixIcon,
             hintStyle: Styles.textStyle14,

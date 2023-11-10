@@ -48,9 +48,11 @@ abstract class AppRoutes {
               child: const LoginView(),
             )),
     GoRoute(
-      path: registerView,
-      builder: (context, state) => const RegisterView(),
-    ),
+        path: registerView,
+        builder: (context, state) => BlocProvider(
+              create: (context) => AuthBloc(),
+              child: const RegisterView(),
+            )),
   ]);
   static String splashView = '/';
   static String homeView = '/homeView';

@@ -5,8 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   bool isVisibility = true;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailLoginController = TextEditingController();
+  TextEditingController passwordLoginController = TextEditingController();
+  TextEditingController emailRegisterController = TextEditingController();
+  TextEditingController nameRegisterController = TextEditingController();
+  TextEditingController passwordRegisterController = TextEditingController();
 
   AuthBloc() : super(AuthInitialState()) {
     on<AuthEvent>((event, emit) async {

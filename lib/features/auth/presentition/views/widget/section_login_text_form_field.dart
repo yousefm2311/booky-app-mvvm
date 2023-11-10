@@ -5,26 +5,28 @@ import 'package:bookly_full_app_mvvm/features/auth/presentition/views/widget/cus
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SectionTextFormField extends StatelessWidget {
-  const SectionTextFormField({super.key, required this.cubit});
-  final AuthBloc cubit;
+class SectionLoginTextFormField extends StatelessWidget {
+  const SectionLoginTextFormField({super.key, required this.bloc});
+  final AuthBloc bloc;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         CustomTextFormField(
+          textInputType: TextInputType.emailAddress,
             obscureText: false,
-            controller: cubit.emailController,
+            controller: bloc.emailLoginController,
             hintText: 'email',
             prefixIcon: const Icon(Icons.email_outlined)),
         const SizedBox(height: 20.0),
         CustomTextFormField(
-          obscureText: cubit.isVisibility,
-          controller: cubit.passwordController,
+          textInputType: TextInputType.visiblePassword,
+          obscureText: bloc.isVisibility,
+          controller: bloc.passwordLoginController,
           hintText: 'password',
           prefixIcon: const Icon(IconBroken.Lock),
           suffixIcon: IconButton(
-            icon: cubit.isVisibility
+            icon: bloc.isVisibility
                 ? const Icon(Icons.visibility_outlined)
                 : const Icon(Icons.visibility_off_outlined),
             onPressed: () {

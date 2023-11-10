@@ -11,7 +11,7 @@ class ClipPathView extends StatelessWidget {
       clipper: RoundedClipper(),
       child: Container(
         width: double.infinity,
-        height: MediaQuery.sizeOf(context).height * .24,
+        height: MediaQuery.sizeOf(context).height * .22,
         decoration: const BoxDecoration(
           color: AppColors.kPrimaryColor,
         ),
