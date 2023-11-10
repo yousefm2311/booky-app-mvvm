@@ -2,11 +2,17 @@ import 'package:bookly_full_app_mvvm/bloc_observer.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/services/darkTheme.dart';
 import 'package:bookly_full_app_mvvm/core/utils/services/lightTheme.dart';
+import 'package:bookly_full_app_mvvm/core/utils/services/services_locator.dart';
+import 'package:bookly_full_app_mvvm/core/utils/services/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.android);
   Bloc.observer = MyBlocObserver();
+  setupServiceLocator();
   runApp(const MyApp());
 }
 

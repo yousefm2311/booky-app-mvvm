@@ -2,6 +2,7 @@ import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/button.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_bloc.dart';
+import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_event.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_state.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/views/widget/clippath_view.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/views/widget/section_bottom_view.dart';
@@ -36,7 +37,9 @@ class RegisterBodyView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: CustomButton(
                   text: 'Register',
-                  onPressed: () {},
+                  onPressed: () {
+                    BlocProvider.of<AuthBloc>(context).add(RegisterEvent());
+                  },
                 ),
               ),
               const SizedBox(height: 20.0),
