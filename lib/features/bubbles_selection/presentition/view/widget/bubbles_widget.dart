@@ -34,7 +34,7 @@ class BubblesWidget extends StatelessWidget {
                       )
                     ]
                   : [],
-              color: isSelected ? modelBubbles.color : AppColors.kColorCircle,
+              color: isSelected ? modelBubbles.color : AppColors.kPrimaryColor,
               borderRadius: BorderRadius.circular(100)),
           child: Center(
             child: Text(
