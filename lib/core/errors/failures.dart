@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 import 'package:dio/dio.dart';
+
 abstract class Failure {
   final String errorMessage;
   const Failure(this.errorMessage);
@@ -30,9 +31,9 @@ class ServerFailure extends Failure {
         }
         return ServerFailure('Unexpected Error , Please try again later');
       default:
-        return ServerFailure('Opps There is a problem , Please try again later');
+        return ServerFailure(
+            'Opps There is a problem , Please try again later');
     }
-
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {

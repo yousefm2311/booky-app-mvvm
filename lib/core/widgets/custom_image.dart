@@ -24,9 +24,8 @@ class CustomImageView extends StatelessWidget {
             child: const Center(child: Icon(Icons.error, color: Colors.white)),
           );
         },
-        imageUrl:
-            'https://img.freepik.com/premium-photo/opened-book-with-flying-pages-butterflies-dark-backgroundgenerative-ai_391052-12859.jpg',
-        placeholder: (context, url) => const CustomLoadingIndicator(),
+        imageUrl: imageUrl,
+        placeholder: (context, url) => const CustomLoadingIndicator(color: Colors.black,),
         imageBuilder: (context, imageProvider) => Container(
           margin: const EdgeInsets.only(right: 14),
           decoration: BoxDecoration(

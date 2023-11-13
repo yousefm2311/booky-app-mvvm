@@ -50,8 +50,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         result.fold((failure) {
           emit(RegisterFailureState(errorMessage: failure.errorMessage));
         }, (value) {
-          saveToFireStore(value,
-              nameController: nameRegisterController);
+          saveToFireStore(value, nameController: nameRegisterController);
           emit(RegisterSuccessState());
         });
       } else if (event is ResetPasswordEvent) {

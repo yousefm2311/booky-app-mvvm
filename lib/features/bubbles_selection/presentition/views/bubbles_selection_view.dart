@@ -1,9 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
-import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/view/widget/bottom_sheet.dart';
-import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/view/widget/func_bubbles.dart';
+import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/views/widget/bottom_sheet.dart';
+import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/views/widget/func_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_full_app_mvvm/features/bubbles_selection/data/model/model_bubbles.dart';
-import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/view/widget/bubbles_widget.dart';
+import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/views/widget/bubbles_widget.dart';
 
 class BubbleSelection extends StatefulWidget {
   const BubbleSelection({Key? key}) : super(key: key);

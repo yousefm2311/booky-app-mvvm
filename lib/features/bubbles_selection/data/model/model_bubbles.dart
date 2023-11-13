@@ -6,11 +6,12 @@ class ModelBubbles {
   final double width, height;
   final Color color;
 
-  ModelBubbles(  {
+  ModelBubbles({
     required this.text,
     required this.top,
     required this.left,
     required this.color,
-  required this.width,required this.height,
+    required this.width,
+    required this.height,
   });
 }

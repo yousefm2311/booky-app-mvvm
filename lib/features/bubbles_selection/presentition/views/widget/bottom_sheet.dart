@@ -1,4 +1,5 @@
 import 'package:bookly_full_app_mvvm/constants.dart';
+import 'package:bookly_full_app_mvvm/core/utils/functions/custom_snack_bar.dart';
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
@@ -19,11 +20,15 @@ class BottomSheetView extends StatelessWidget {
           style: Styles.textStyle20.copyWith(color: Colors.white),
         ),
         onPressed: () {
-          localStorage
-              .saveData(key: 'bubblesSelection', value: selection)
-              .then((value) {
-            pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
-          });
+          if (selection.isEmpty) {
+            customSnackBar(context, text: 'Please select category');
+          } else {
+            localStorage
+                .saveData(key: 'bubblesSelection', value: selection)
+                .then((value) {
+              pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+            });
+          }
         },
       ),
     );

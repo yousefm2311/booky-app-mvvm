@@ -46,7 +46,6 @@ class RegisterFailureState extends AuthState {
 class GoogleLoadingState extends AuthState {}
 
 class GoogleSuccessState extends AuthState {
-
   final UserCredential userCredential;
 
   GoogleSuccessState({required this.userCredential});

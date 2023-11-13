@@ -1,8 +1,8 @@
 import 'package:bookly_full_app_mvvm/core/utils/assets.dart';
 import 'package:bookly_full_app_mvvm/core/utils/colors.dart';
 import 'package:bookly_full_app_mvvm/core/utils/icon_broken.dart';
-import 'package:bookly_full_app_mvvm/features/all_books/presentition/view/all_books_view.dart';
-import 'package:bookly_full_app_mvvm/features/home/presentition/view/home_view.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/favorites_view.dart';
+import 'package:bookly_full_app_mvvm/features/home/presentition/views/home_view.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/view/profile_view.dart';
 import 'package:bookly_full_app_mvvm/features/search/presentition/view/search_view.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class _BottomNaviBarViewState extends State<BottomNaviBarView> {
   int count = 0;
   List<Widget> screens = const [
     HomeView(),
-    AllBooksView(),
+    FavoritesView(),
     SearchView(),
     ProfileView()
   ];
@@ -56,8 +56,8 @@ class _BottomNaviBarViewState extends State<BottomNaviBarView> {
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.menu_book_rounded,
-                text: 'Books',
+                icon: IconBroken.Heart,
+                text: 'Favorites',
               ),
               GButton(
                 icon: IconBroken.Search,

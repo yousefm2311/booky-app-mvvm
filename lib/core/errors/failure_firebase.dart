@@ -35,4 +35,3 @@ class AuthFailure extends FirebaseFailure {
     }
   }
 }
-

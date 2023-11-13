@@ -50,7 +50,7 @@ class LoginBodyView extends StatelessWidget {
               SectionLoginTextFormField(bloc: bloc),
               SectionButtonLogin(
                 text: state is LoginLoadingState
-                    ? const CustomLoadingIndicator()
+                    ? const CustomLoadingIndicator(color: Colors.white,)
                     : Text(
                         'Login',
                         style: Styles.textStyle20.copyWith(color: Colors.white),

@@ -67,7 +67,7 @@ class ResetPasswordView extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: CustomButton(
                       text: state is ResetPasswordLoadingState
-                          ? const CustomLoadingIndicator()
+                          ? const CustomLoadingIndicator(color: Colors.white,)
                           : Text(
                               'Reset Password',
                               style: Styles.textStyle16.copyWith(

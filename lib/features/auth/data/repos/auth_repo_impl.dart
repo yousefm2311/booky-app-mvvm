@@ -5,6 +5,7 @@ import 'package:bookly_full_app_mvvm/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<FirebaseFailure, UserCredential>> loginMethod(

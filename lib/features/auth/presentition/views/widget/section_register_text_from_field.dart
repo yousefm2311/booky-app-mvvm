@@ -13,26 +13,26 @@ class SectionRegisterTextFormField extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormField(
-          validator: (value) {
+            validator: (value) {
               if (value!.isEmpty) {
                 return 'name is required';
               }
               return null;
             },
-          textInputType: TextInputType.name,
+            textInputType: TextInputType.name,
             obscureText: false,
             controller: bloc.nameRegisterController,
             hintText: 'name',
             prefixIcon: const Icon(IconBroken.Profile)),
         const SizedBox(height: 20.0),
         CustomTextFormField(
-          validator: (value) {
+            validator: (value) {
               if (value!.isEmpty) {
                 return 'email address is required';
               }
               return null;
             },
-          textInputType: TextInputType.emailAddress,
+            textInputType: TextInputType.emailAddress,
             obscureText: false,
             controller: bloc.emailRegisterController,
             hintText: 'email',
@@ -40,11 +40,11 @@ class SectionRegisterTextFormField extends StatelessWidget {
         const SizedBox(height: 20.0),
         CustomTextFormField(
           validator: (value) {
-              if (value!.isEmpty) {
-                return 'password is required';
-              }
-              return null;
-            },
+            if (value!.isEmpty) {
+              return 'password is required';
+            }
+            return null;
+          },
           textInputType: TextInputType.visiblePassword,
           obscureText: bloc.isVisibility,
           controller: bloc.passwordRegisterController,

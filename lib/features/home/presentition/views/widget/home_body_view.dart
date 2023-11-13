@@ -1,7 +1,6 @@
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
-import 'package:bookly_full_app_mvvm/features/home/presentition/view/widget/grid_view_newset_seller.dart';
-
-import 'package:bookly_full_app_mvvm/features/home/presentition/view/widget/list_view_body_horizontal.dart';
+import 'package:bookly_full_app_mvvm/features/home/presentition/views/widget/grid_view_newset_seller.dart';
+import 'package:bookly_full_app_mvvm/features/home/presentition/views/widget/list_view_body_horizontal.dart';
 import 'package:flutter/material.dart';
 
 class HomeBodyView extends StatelessWidget {

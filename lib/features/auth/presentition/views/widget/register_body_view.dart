@@ -42,7 +42,7 @@ class RegisterBodyView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: CustomButton(
                     text: state is RegisterLoadingState
-                        ? const CustomLoadingIndicator()
+                        ? const CustomLoadingIndicator(color: Colors.white,)
                         : Text(
                             'Register',
                             style: Styles.textStyle20
