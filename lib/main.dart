@@ -1,5 +1,5 @@
 import 'package:bookly_full_app_mvvm/bloc_observer.dart';
-import 'package:bookly_full_app_mvvm/core/utils/local_storage/local_storage.dart';
+import 'package:bookly_full_app_mvvm/constants.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/services/darkTheme.dart';
 import 'package:bookly_full_app_mvvm/core/utils/services/lightTheme.dart';
@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.android);
-  LocalStorage().initSharedPreferences();
+  await localStorage.initSharedPreferences();
   Bloc.observer = MyBlocObserver();
   setupServiceLocator();
   runApp(const MyApp());

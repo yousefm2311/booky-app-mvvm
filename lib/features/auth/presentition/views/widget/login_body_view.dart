@@ -1,4 +1,5 @@
 import 'package:bookly_full_app_mvvm/core/utils/functions/custom_snack_bar.dart';
+import 'package:bookly_full_app_mvvm/core/utils/local_storage/local_storage.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_loading_indicator.dart';
@@ -23,6 +24,7 @@ class LoginBodyView extends StatelessWidget {
       if (state is LoginFailureState) {
         customSnackBar(context, text: state.errorMessage.toString());
       } else if (state is LoginSuccessState) {
+        LocalStorage().setData('uId', state.userCredential.user!.uid);
         GoRouter.of(context).push(AppRoutes.homeView);
       }
     }, builder: (context, state) {

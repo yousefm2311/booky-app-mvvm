@@ -36,7 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               .then((value) {
             debugPrint(value.toString());
           });
-          emit(LoginSuccessState());
+          emit(LoginSuccessState(userCredential: value));
         });
       }
       // Register Event
