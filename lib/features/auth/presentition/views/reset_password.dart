@@ -19,7 +19,22 @@ class ResetPasswordView extends StatelessWidget {
     return BlocConsumer<AuthBloc, AuthState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: () => popRouter(context),
+              icon: const Icon(
+                IconBroken.Arrow___Left_2,
+                size: 30,
+                color: Colors.black,
+              ),
+            ),
+            title: Text(
+              'Reset Password',
+              style: Styles.textStyle20
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.w500),
+            ),
+            backgroundColor: Colors.white,
+          ),
           body: SingleChildScrollView(
             child: Form(
               key: bloc.fromKey,
