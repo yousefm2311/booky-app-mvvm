@@ -1,9 +1,14 @@
+import 'package:bookly_full_app_mvvm/constants.dart';
+import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
+import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetView extends StatelessWidget {
-  const BottomSheetView({super.key});
+  const BottomSheetView({super.key, required this.selection});
+
+  final List<String> selection;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,7 +18,13 @@ class BottomSheetView extends StatelessWidget {
           'NEXT',
           style: Styles.textStyle20.copyWith(color: Colors.white),
         ),
-        onPressed: () {},
+        onPressed: () {
+          localStorage
+              .saveData(key: 'bubblesSelection', value: selection)
+              .then((value) {
+            pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+          });
+        },
       ),
     );
   }

@@ -6,7 +6,6 @@ import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
 
-
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
   @override
@@ -20,7 +19,9 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(const Duration(seconds: 2), () {
       localStorage.getData(key: 'uId') == null
           ? pushReplacementRouter(AppRoutes.loginView, context)
-          : pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+          : localStorage.getData(key: 'bubblesSelection') == null
+              ? pushReplacementRouter(AppRoutes.bubblesSelectionView, context)
+              : pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
     });
   }
 

@@ -1,3 +1,4 @@
+import 'package:bookly_full_app_mvvm/core/utils/assets.dart';
 import 'package:bookly_full_app_mvvm/core/utils/colors.dart';
 import 'package:bookly_full_app_mvvm/core/utils/icon_broken.dart';
 import 'package:bookly_full_app_mvvm/features/all_books/presentition/view/all_books_view.dart';
@@ -25,6 +26,13 @@ class _BottomNaviBarViewState extends State<BottomNaviBarView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Image.asset(
+          AssetsData.logo1,
+          height: 40,
+        ),
+      ),
       body: screens[count],
       bottomNavigationBar: Container(
         color: AppColors.kPrimaryColor,
@@ -38,7 +46,7 @@ class _BottomNaviBarViewState extends State<BottomNaviBarView> {
             },
             backgroundColor: AppColors.kPrimaryColor,
             tabBackgroundColor: Colors.grey.shade800,
-            color: Colors.grey,
+            color: Colors.grey.shade500,
             activeColor: Colors.white,
             padding: const EdgeInsets.all(12.0),
             gap: 8,

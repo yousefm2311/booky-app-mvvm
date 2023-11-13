@@ -26,13 +26,13 @@ class LoginBodyView extends StatelessWidget {
       } else if (state is LoginSuccessState) {
         localStorage.saveData(
             key: 'uId', value: state.userCredential.user!.uid);
-        pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+        pushReplacementRouter(AppRoutes.bubblesSelectionView, context);
       } else if (state is GoogleFailureState) {
         customSnackBar(context, text: state.errorMessage.toString());
       } else if (state is GoogleSuccessState) {
         localStorage.saveData(
             key: 'uId', value: state.userCredential.user!.uid);
-        pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+        pushReplacementRouter(AppRoutes.bubblesSelectionView, context);
       }
     }, builder: (context, state) {
       var bloc = BlocProvider.of<AuthBloc>(context);

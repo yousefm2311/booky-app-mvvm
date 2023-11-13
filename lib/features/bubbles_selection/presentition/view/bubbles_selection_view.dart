@@ -4,11 +4,13 @@ import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/vie
 import 'package:flutter/material.dart';
 import 'package:bookly_full_app_mvvm/features/bubbles_selection/data/model/model_bubbles.dart';
 import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/view/widget/bubbles_widget.dart';
+
 class BubbleSelection extends StatefulWidget {
   const BubbleSelection({Key? key}) : super(key: key);
   @override
   _BubbleSelectionState createState() => _BubbleSelectionState();
 }
+
 class _BubbleSelectionState extends State<BubbleSelection> {
   List<String> selectedInterests = [];
   Map<String, bool> isSelected = {};
@@ -30,9 +32,10 @@ class _BubbleSelectionState extends State<BubbleSelection> {
           ],
         ),
       ),
-      bottomSheet: const BottomSheetView(),
+      bottomSheet: BottomSheetView(selection: selectedInterests),
     );
   }
+
   void toggleInterest(String interest) {
     setState(() {
       if (selectedInterests.contains(interest)) {

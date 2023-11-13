@@ -77,13 +77,13 @@ class RegisterBodyView extends StatelessWidget {
         if (state is RegisterFailureState) {
           customSnackBar(context, text: state.errorMessage.toString());
         } else if (state is RegisterSuccessState) {
-          pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+          pushReplacementRouter(AppRoutes.bubblesSelectionView, context);
         } else if (state is GoogleFailureState) {
           customSnackBar(context, text: state.errorMessage.toString());
         } else if (state is GoogleSuccessState) {
           localStorage.saveData(
               key: 'uId', value: state.userCredential.user!.uid);
-          pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
+          pushReplacementRouter(AppRoutes.bubblesSelectionView, context);
         }
       },
     );

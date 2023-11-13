@@ -13,8 +13,6 @@ class LightTheme {
       backgroundColor: AppColors.kPrimaryColor,
     ),
     textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
-    bottomSheetTheme: const BottomSheetThemeData(
-      backgroundColor: AppColors.kPrimaryColor,
-    ),
+    bottomSheetTheme: const BottomSheetThemeData(),
   );
 }

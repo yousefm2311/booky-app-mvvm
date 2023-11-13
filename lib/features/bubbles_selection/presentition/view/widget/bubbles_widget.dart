@@ -39,7 +39,7 @@ class BubblesWidget extends StatelessWidget {
           child: Center(
             child: Text(
               modelBubbles.text,
-              style: Styles.textStyle14,
+              style: Styles.textStyle14.copyWith(color: Colors.white),
             ),
           ),
         ),
