@@ -4,6 +4,7 @@ import 'package:bookly_full_app_mvvm/features/auth/data/repos/auth_repo_impl.dar
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/views/login_view.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/views/register_view.dart';
+import 'package:bookly_full_app_mvvm/features/auth/presentition/views/reset_password.dart';
 import 'package:bookly_full_app_mvvm/features/bottom_navi_bar/presentition/view/bottom_navi_bar_view.dart';
 import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/view/bubbles_selection_view.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/view/home_view.dart';
@@ -44,21 +45,30 @@ abstract class AppRoutes {
       builder: (context, state) => const BubbleSelection(),
     ),
     GoRoute(
+      path: resetPasswordView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
+        child: const ResetPasswordView(),
+      ),
+    ),
+    GoRoute(
         path: loginView,
         builder: (context, state) => BlocProvider(
               create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
               child: const LoginView(),
             )),
     GoRoute(
-        path: registerView,
-        builder: (context, state) => BlocProvider(
-              create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
-              child: const RegisterView(),
-            )),
+      path: registerView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
+        child: const RegisterView(),
+      ),
+    ),
   ]);
   static String splashView = '/';
   static String homeView = '/homeView';
   static String loginView = '/loginView';
+  static String resetPasswordView = '/resetPasswordView';
   static String registerView = '/registerView';
   static String allBooksView = '/allBooksView';
   static String bottomNaviBarView = '/bottomNaviBarView';

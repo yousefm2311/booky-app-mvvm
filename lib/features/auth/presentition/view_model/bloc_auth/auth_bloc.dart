@@ -13,6 +13,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   TextEditingController emailRegisterController = TextEditingController();
   TextEditingController nameRegisterController = TextEditingController();
   TextEditingController passwordRegisterController = TextEditingController();
+  TextEditingController resetPasswordController = TextEditingController();
+  var fromKey = GlobalKey<FormState>();
 
   final AuthRepo authRepo;
   AuthBloc(this.authRepo) : super(AuthInitialState()) {
@@ -50,6 +52,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }, (value) {
           saveToFireStore(value, nameRegisterController);
           emit(RegisterSuccessState());
+        });
+      } else if (event is ResetPasswordEvent) {
+        emit(ResetPasswordLoadingState());
+        var result = await authRepo.ressetPasswordMethod(
+            email: resetPasswordController.text);
+        result.fold((failure) {
+          emit(ResetPasswordFailureState(errorMessage: failure.errorMessage));
+        }, (value) {
+          emit(ResetPasswordSuccessState());
         });
       }
     });

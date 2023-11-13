@@ -1,3 +1,5 @@
+import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
+import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/button.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_text_button.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_bloc.dart';
@@ -15,7 +17,11 @@ class SectionButtonLogin extends StatelessWidget {
       children: [
         Align(
           alignment: AlignmentDirectional.centerEnd,
-          child: CustomTextButton(text: 'forgot password?', onPressed: () {}),
+          child: CustomTextButton(
+              text: 'forgot password?',
+              onPressed: () {
+                pushRouter(AppRoutes.resetPasswordView, context);
+              }),
         ),
         const SizedBox(height: 10.0),
         Padding(
@@ -23,7 +29,12 @@ class SectionButtonLogin extends StatelessWidget {
           child: CustomButton(
             text: text,
             onPressed: () {
-              BlocProvider.of<AuthBloc>(context).add(LoginEvent());
+              if (BlocProvider.of<AuthBloc>(context)
+                  .fromKey
+                  .currentState!
+                  .validate()) {
+                BlocProvider.of<AuthBloc>(context).add(LoginEvent());
+              }
             },
           ),
         )

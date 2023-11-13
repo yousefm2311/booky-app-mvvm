@@ -13,13 +13,25 @@ class SectionLoginTextFormField extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormField(
-          textInputType: TextInputType.emailAddress,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'email address is required';
+              }
+              return null;
+            },
+            textInputType: TextInputType.emailAddress,
             obscureText: false,
             controller: bloc.emailLoginController,
             hintText: 'email',
             prefixIcon: const Icon(Icons.email_outlined)),
         const SizedBox(height: 20.0),
         CustomTextFormField(
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'password is required';
+            }
+            return null;
+          },
           textInputType: TextInputType.visiblePassword,
           obscureText: bloc.isVisibility,
           controller: bloc.passwordLoginController,

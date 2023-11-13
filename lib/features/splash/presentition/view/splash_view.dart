@@ -2,9 +2,11 @@ import 'package:animate_do/animate_do.dart';
 import 'package:bookly_full_app_mvvm/constants.dart';
 import 'package:bookly_full_app_mvvm/core/utils/assets.dart';
 import 'package:bookly_full_app_mvvm/core/utils/colors.dart';
+import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
+
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
   @override
@@ -17,10 +19,11 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       localStorage.getData(key: 'uId') == null
-          ? GoRouter.of(context).pushReplacement(AppRoutes.loginView)
-          : GoRouter.of(context).pushReplacement(AppRoutes.homeView);
+          ? pushReplacementRouter(AppRoutes.loginView, context)
+          : pushReplacementRouter(AppRoutes.homeView, context);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

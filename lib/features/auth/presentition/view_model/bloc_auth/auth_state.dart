@@ -14,6 +14,16 @@ class LoginSuccessState extends AuthState {
 
 class LoginLoadingState extends AuthState {}
 
+class ResetPasswordLoadingState extends AuthState {}
+
+class ResetPasswordSuccessState extends AuthState {}
+
+class ResetPasswordFailureState extends AuthState {
+  final String errorMessage;
+
+  ResetPasswordFailureState({required this.errorMessage});
+}
+
 class LoginFailureState extends AuthState {
   final String errorMessage;
   LoginFailureState({required this.errorMessage});

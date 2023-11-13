@@ -35,4 +35,18 @@ class AuthRepoImpl implements AuthRepo {
           FirebaseAuthException(code: e.toString())));
     }
   }
+
+  @override
+  Future<Either<FirebaseFailure, void>> ressetPasswordMethod(
+      {required email}) async {
+    try {
+      var result = await auth.sendPasswordResetEmail(email: email);
+      return right(result);
+    } on FirebaseAuthException catch (e) {
+      return left(AuthFailure.fromFirebaseAuthException(e));
+    } catch (e) {
+      return left(AuthFailure.fromFirebaseAuthException(
+          FirebaseAuthException(code: e.toString())));
+    }
+  }
 }
