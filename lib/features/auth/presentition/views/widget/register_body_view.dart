@@ -36,7 +36,10 @@ class RegisterBodyView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: CustomButton(
-                  text: 'Register',
+                  text: Text(
+                    'Register',
+                    style: Styles.textStyle20.copyWith(color: Colors.white),
+                  ),
                   onPressed: () {
                     BlocProvider.of<AuthBloc>(context).add(RegisterEvent());
                   },

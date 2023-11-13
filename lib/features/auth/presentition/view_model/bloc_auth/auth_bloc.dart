@@ -5,6 +5,7 @@ import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   bool isVisibility = true;
   TextEditingController emailLoginController = TextEditingController();
@@ -16,10 +17,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepo authRepo;
   AuthBloc(this.authRepo) : super(AuthInitialState()) {
     on<AuthEvent>((event, emit) async {
+      // Change Visibility Event
       if (event is ChangeVisibilityEvent) {
         isVisibility = !isVisibility;
         emit(ChangeVisibilityState());
-      } else if (event is LoginEvent) {
+      }
+      // Login Event
+      else if (event is LoginEvent) {
         emit(LoginLoadingState());
         var result = await authRepo.loginMethod(
             email: emailLoginController.text,
@@ -34,7 +38,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           });
           emit(LoginSuccessState());
         });
-      } else if (event is RegisterEvent) {
+      }
+      // Register Event
+      else if (event is RegisterEvent) {
         emit(RegisterLoadingState());
         var result = await authRepo.registerMethod(
             email: emailRegisterController.text,

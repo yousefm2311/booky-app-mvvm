@@ -2,15 +2,13 @@ import 'package:bookly_full_app_mvvm/core/widgets/button.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_text_button.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_event.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SectionButtonLogin extends StatelessWidget {
-  const SectionButtonLogin({super.key});
+  const SectionButtonLogin({super.key, required this.text});
 
-
-
+  final Widget text;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,11 +21,11 @@ class SectionButtonLogin extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: CustomButton(
-                  text: 'Login',
-                  onPressed: () {
-                    BlocProvider.of<AuthBloc>(context).add(LoginEvent());
-                  },
-                ),
+            text: text,
+            onPressed: () {
+              BlocProvider.of<AuthBloc>(context).add(LoginEvent());
+            },
+          ),
         )
       ],
     );
