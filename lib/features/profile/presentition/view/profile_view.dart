@@ -1,3 +1,4 @@
+import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {
@@ -5,6 +6,13 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return SafeArea(
+      child: Center(
+        child: Text(
+          'Profile',
+          style: Styles.textStyle32.copyWith(color: Colors.black),
+        ),
+      ),
+    );
   }
 }

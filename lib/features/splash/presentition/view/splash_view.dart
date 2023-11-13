@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(const Duration(seconds: 2), () {
       localStorage.getData(key: 'uId') == null
           ? pushReplacementRouter(AppRoutes.loginView, context)
-          : pushReplacementRouter(AppRoutes.homeView, context);
+          : pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
     });
   }
 

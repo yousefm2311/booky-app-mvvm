@@ -45,7 +45,7 @@ class ResetPasswordView extends StatelessWidget {
                   const Icon(IconBroken.Lock, size: 100),
                   const SizedBox(height: 20.0),
                   const Text(
-                    'FORGET\nPASSWORD',
+                    'FORGOT\nPASSWORD',
                     style: Styles.textStyle32,
                     textAlign: TextAlign.center,
                   ),
