@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CusromLoadingIndicator extends StatelessWidget {
-  const CusromLoadingIndicator({super.key});
+class CustomLoadingIndicator extends StatelessWidget {
+  const CustomLoadingIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {

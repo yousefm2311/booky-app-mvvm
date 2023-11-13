@@ -1,6 +1,7 @@
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/button.dart';
+import 'package:bookly_full_app_mvvm/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_event.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_state.dart';
@@ -36,10 +37,13 @@ class RegisterBodyView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: CustomButton(
-                  text: Text(
-                    'Register',
-                    style: Styles.textStyle20.copyWith(color: Colors.white),
-                  ),
+                  text: state is RegisterLoadingState
+                      ? const CustomLoadingIndicator()
+                      : Text(
+                          'Register',
+                          style:
+                              Styles.textStyle20.copyWith(color: Colors.white),
+                        ),
                   onPressed: () {
                     BlocProvider.of<AuthBloc>(context).add(RegisterEvent());
                   },
