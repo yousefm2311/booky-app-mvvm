@@ -1,3 +1,4 @@
+import 'package:bookly_full_app_mvvm/constants.dart';
 import 'package:bookly_full_app_mvvm/core/utils/functions/custom_snack_bar.dart';
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
@@ -55,7 +56,11 @@ class RegisterBodyView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                const SectionContinueWithView(),
+                SectionContinueWithView(
+                  onTap: () {
+                    bloc.add(GoogleAuthEvent());
+                  },
+                ),
                 SectionBottomView(
                   text: 'Already have an account?',
                   buttonTitle: 'Login now',
@@ -73,6 +78,12 @@ class RegisterBodyView extends StatelessWidget {
           customSnackBar(context, text: state.errorMessage.toString());
         } else if (state is RegisterSuccessState) {
           pushReplacementRouter(AppRoutes.loginView, context);
+        } else if (state is GoogleFailureState) {
+          customSnackBar(context, text: state.errorMessage.toString());
+        } else if (state is GoogleSuccessState) {
+          localStorage.saveData(
+              key: 'uId', value: state.userCredential.user!.uid);
+          pushReplacementRouter(AppRoutes.homeView, context);
         }
       },
     );

@@ -36,26 +36,3 @@ class AuthFailure extends FirebaseFailure {
   }
 }
 
-class FirestoreFailure extends FirebaseFailure {
-  FirestoreFailure(super.errorMessage);
-
-  factory FirestoreFailure.fromFirebaseFirestoreException(firestoreException) {
-    switch (firestoreException.code) {
-      case 'cancelled':
-        return FirestoreFailure('The operation was cancelled');
-      case 'unknown':
-        return FirestoreFailure('An unknown error occurred');
-      case 'invalid-argument':
-        return FirestoreFailure('Invalid argument provided');
-      case 'not-found':
-        return FirestoreFailure('The requested document was not found');
-      case 'already-exists':
-        return FirestoreFailure('The document already exists');
-      case 'permission-denied':
-        return FirestoreFailure('Permission denied to perform the operation');
-      default:
-        return FirestoreFailure(
-            'Unexpected error occurred, please try again later');
-    }
-  }
-}

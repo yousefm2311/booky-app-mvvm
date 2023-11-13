@@ -13,7 +13,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResetPasswordView extends StatelessWidget {
   const ResetPasswordView({super.key});
-
   @override
   Widget build(BuildContext context) {
     var bloc = BlocProvider.of<AuthBloc>(context);

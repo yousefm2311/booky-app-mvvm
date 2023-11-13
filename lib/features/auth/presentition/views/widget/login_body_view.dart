@@ -5,6 +5,7 @@ import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_bloc.dart';
+import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_event.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/view_model/bloc_auth/auth_state.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/views/widget/clippath_view.dart';
 import 'package:bookly_full_app_mvvm/features/auth/presentition/views/widget/section_bottom_view.dart';
@@ -23,6 +24,12 @@ class LoginBodyView extends StatelessWidget {
       if (state is LoginFailureState) {
         customSnackBar(context, text: state.errorMessage.toString());
       } else if (state is LoginSuccessState) {
+        localStorage.saveData(
+            key: 'uId', value: state.userCredential.user!.uid);
+        pushReplacementRouter(AppRoutes.homeView, context);
+      } else if (state is GoogleFailureState) {
+        customSnackBar(context, text: state.errorMessage.toString());
+      } else if (state is GoogleSuccessState) {
         localStorage.saveData(
             key: 'uId', value: state.userCredential.user!.uid);
         pushReplacementRouter(AppRoutes.homeView, context);
@@ -50,7 +57,9 @@ class LoginBodyView extends StatelessWidget {
                       ),
               ),
               const SizedBox(height: 20.0),
-              SectionContinueWithView(onTap: () {}),
+              SectionContinueWithView(onTap: () {
+                bloc.add(GoogleAuthEvent());
+              }),
               const SizedBox(height: 10.0),
               SectionBottomView(
                 text: 'Not a member?',

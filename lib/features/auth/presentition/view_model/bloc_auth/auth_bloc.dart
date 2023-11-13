@@ -50,7 +50,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         result.fold((failure) {
           emit(RegisterFailureState(errorMessage: failure.errorMessage));
         }, (value) {
-          saveToFireStore(value, nameRegisterController);
+          saveToFireStore(value,
+              nameController: nameRegisterController);
           emit(RegisterSuccessState());
         });
       } else if (event is ResetPasswordEvent) {
@@ -61,6 +62,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(ResetPasswordFailureState(errorMessage: failure.errorMessage));
         }, (value) {
           emit(ResetPasswordSuccessState());
+        });
+      } else if (event is GoogleAuthEvent) {
+        emit(GoogleLoadingState());
+        var result = await authRepo.googleMethod();
+        result.fold((failure) {
+          emit(GoogleFailureState(errorMessage: failure.errorMessage));
+        }, (value) {
+          saveToFireStore(value);
+          emit(GoogleSuccessState(userCredential: value));
         });
       }
     });
