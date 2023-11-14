@@ -1,11 +1,12 @@
+
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
-import 'package:bookly_full_app_mvvm/features/books_details_view/presentition/views/widgets/section_image_text.dart';
-import 'package:bookly_full_app_mvvm/features/books_details_view/presentition/views/widgets/section_rating.dart';
-import 'package:bookly_full_app_mvvm/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/data/models/favorites_model.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/widget/section_image_favorite.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/widget/section_rating_favorite.dart';
 import 'package:flutter/material.dart';
-class BooksDetailsBodyView extends StatelessWidget {
-  const BooksDetailsBodyView({super.key, required this.bookModel});
-  final BookModel bookModel;
+class BooksDetailsFavoriteBodyView extends StatelessWidget {
+  const BooksDetailsFavoriteBodyView({super.key, required this.favoritesModel});
+  final FavoritesModel  favoritesModel;
 
 
   @override
@@ -17,12 +18,11 @@ class BooksDetailsBodyView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SectionImageText(bookModel: bookModel),
-            SectionRating(bookModel: bookModel),
+            SectionImageFavorite(favoritesModel: favoritesModel),
+            SectionRatingFavorite(favoritesModel: favoritesModel),
             const SizedBox(height: 20.0),
             Text(
-                bookModel.volumeInfo.description ??
-                    'No description available for this book',
+                favoritesModel.description!,
                 textAlign: TextAlign.justify,
                 style: Styles.textStyle16.copyWith(
                     color: Colors.black54, fontWeight: FontWeight.w800)),

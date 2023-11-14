@@ -1,7 +1,7 @@
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
-import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly_full_app_mvvm/core/widgets/error_widget.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/view_model/home_bloc/home_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/view_model/home_bloc/home_state.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/views/widget/grid_view_items.dart';
@@ -25,7 +25,8 @@ class GridViewNewsetSeller extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  pushRouter(AppRoutes.booksDetailsView, context,extra: state.books[index]);
+                  pushRouter(AppRoutes.booksDetailsView, context,
+                      extra: state.books[index],);
                 },
                 child: GridViewItems(bookModel: state.books[index]),
               );
@@ -33,12 +34,7 @@ class GridViewNewsetSeller extends StatelessWidget {
           );
         } else if (state is FetchBooksHomeFailureState) {
           return SliverToBoxAdapter(
-            child: Center(
-                child: Text(
-              state.errorMessage.toString(),
-              style: Styles.textStyle16,
-            )),
-          );
+              child: ErrorDemoWidget(error: state.errorMessage));
         } else {
           return const SliverToBoxAdapter(
             child: CustomLoadingIndicator(

@@ -17,3 +17,13 @@ class FetchFavoriteDataFailureState extends FavoriteState {
 }
 
 class FetchFavoriteDataLoadingState extends FavoriteState {}
+
+class RemoveFavoriteDataLoadingState extends FavoriteState {}
+
+class RemoveFavoriteDataSuccessState extends FavoriteState {}
+
+class RemoveFavoriteDataFailureState extends FavoriteState {
+  final String errorMessage;
+
+  RemoveFavoriteDataFailureState({required this.errorMessage});
+}

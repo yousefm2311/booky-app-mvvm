@@ -27,6 +27,7 @@ void saveFavoritesToFireStore(BookModel bookModel, bool isFavorites) async {
     isFavorite: isFavorites,
     title: bookModel.volumeInfo.title,
     id: bookModel.id,
+    review: bookModel.volumeInfo.previewLink,
   );
   await FireStoreUser().addFavoriteToFireStore(favoritesModel);
 }

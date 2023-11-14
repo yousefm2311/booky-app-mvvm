@@ -1,17 +1,18 @@
+
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/functions/url_launcher.dart';
 import 'package:bookly_full_app_mvvm/core/utils/icon_broken.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/button.dart';
-import 'package:bookly_full_app_mvvm/features/books_details_view/presentition/views/widgets/books_details_body_view.dart';
-import 'package:bookly_full_app_mvvm/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/data/models/favorites_model.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/widget/book_details_favorite_body.dart';
 import 'package:flutter/material.dart';
 
-class BooksDetailsView extends StatelessWidget {
-  const BooksDetailsView(
-      {super.key, required this.bookModel, });
+class BooksDetailsFavoriteView extends StatelessWidget {
+  const BooksDetailsFavoriteView(
+      {super.key, required this.favoritesModel, });
 
-  final BookModel bookModel;
+  final FavoritesModel favoritesModel;
 
 
   @override
@@ -32,8 +33,8 @@ class BooksDetailsView extends StatelessWidget {
               color: Colors.black,
             )),
       ),
-      body: BooksDetailsBodyView(
-          bookModel: bookModel,),
+      body: BooksDetailsFavoriteBodyView(
+          favoritesModel: favoritesModel,),
       bottomSheet: Padding(
         padding: const EdgeInsets.only(
             left: 20.0, right: 20.0, bottom: 10.0, top: 10.0),
@@ -43,7 +44,7 @@ class BooksDetailsView extends StatelessWidget {
             style: Styles.textStyle20.copyWith(color: Colors.white),
           ),
           onPressed: () {
-            launchCustomUrl(context, bookModel.volumeInfo.previewLink!);
+            launchCustomUrl(context, favoritesModel.review);
           },
         ),
       ),

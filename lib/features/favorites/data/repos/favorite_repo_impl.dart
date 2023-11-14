@@ -4,7 +4,6 @@ import 'package:bookly_full_app_mvvm/features/favorites/data/models/favorites_mo
 import 'package:bookly_full_app_mvvm/features/favorites/data/repos/favorite_repo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 
 class FavoriteRepoImpl implements FavoritesRepo {
   @override
@@ -18,10 +17,23 @@ class FavoriteRepoImpl implements FavoritesRepo {
             FavoritesModel.fromJson(doc.data() as Map<String, dynamic>);
         favoritesList.add(favoritesModel);
       }
-      for (var element in favoritesList) {
-        debugPrint(element.description);
-      }
       return right(favoritesList);
+    } catch (e) {
+      if (e is FirebaseException) {
+        DataFetchFailure dataFetchFailure =
+            DataFetchFailure.fromFirebaseException(e);
+        return left(dataFetchFailure);
+      } else {
+        return left(DataFetchFailure('An unexpected error occurred'));
+      }
+    }
+  }
+
+  @override
+  Future<Either<FirestoreFailure, void>> removeFavoriteData({id}) async {
+    try {
+      var result = await FireStoreUser().removeFavoritesDataFromFirebase(id);
+      return right(result);
     } catch (e) {
       if (e is FirebaseException) {
         DataFetchFailure dataFetchFailure =

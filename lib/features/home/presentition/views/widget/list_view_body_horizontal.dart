@@ -2,9 +2,9 @@ import 'package:bookly_full_app_mvvm/core/utils/assets.dart';
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/core/utils/services/services_locator.dart';
-import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_image.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly_full_app_mvvm/core/widgets/error_widget.dart';
 import 'package:bookly_full_app_mvvm/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/view_model/home_bloc/home_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/view_model/home_bloc/home_event.dart';
@@ -46,11 +46,7 @@ class ListViewBodyHorizontal extends StatelessWidget {
             ),
           );
         } else if (state is FetchBookHomeListViewFailureState) {
-          return Center(
-              child: Text(
-            state.errorMessage.toString(),
-            style: Styles.textStyle16,
-          ));
+          return ErrorDemoWidget(error: state.errorMessage);
         } else {
           return const CustomLoadingIndicator(color: Colors.black);
         }

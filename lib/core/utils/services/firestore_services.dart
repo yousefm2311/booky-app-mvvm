@@ -22,10 +22,9 @@ class FireStoreUser {
     return await favoritesCollectionRef
         .doc(uId)
         .collection('favorites')
-        .doc()
+        .doc(favoritesModel.id)
         .set(favoritesModel.toJson())
         .then((value) {
-      return value;
     }).catchError((error) {
       if (kDebugMode) {
         print(error.toString());
@@ -43,6 +42,18 @@ class FireStoreUser {
           .doc(uId)
           .collection('favorites')
           .get();
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<void> removeFavoritesDataFromFirebase( id) async {
+    try {
+      return await favoritesCollectionRef
+          .doc(uId)
+          .collection('favorites')
+          .doc(id)
+          .delete();
     } catch (e) {
       throw e.toString();
     }

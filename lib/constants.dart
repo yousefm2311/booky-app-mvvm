@@ -15,6 +15,8 @@ final CollectionReference favoritesCollectionRef =
 
 LocalStorage localStorage = LocalStorage();
 
+final List dataF = [];
+
 final GoogleSignIn googleSignIn = GoogleSignIn(scopes: [
   'email',
   'profile',

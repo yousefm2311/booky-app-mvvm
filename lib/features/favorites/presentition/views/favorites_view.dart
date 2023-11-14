@@ -1,7 +1,8 @@
-
-import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
+import 'package:bookly_full_app_mvvm/core/utils/services/services_locator.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/data/repos/favorite_repo_impl.dart';
 import 'package:bookly_full_app_mvvm/features/favorites/presentition/view_model/favorite_bloc/favorite_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/favorites/presentition/view_model/favorite_bloc/favorite_event.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/widget/favorites_body_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,19 +11,10 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
-        child: GestureDetector(
-          onTap: () {
-            BlocProvider.of<FavoriteBloc>(context)
-                .add(FetchFavoriteDataEvent());
-          },
-          child: Text(
-            'favorites',
-            style: Styles.textStyle32.copyWith(color: Colors.black),
-          ),
-        ),
-      ),
+    return BlocProvider(
+      create: (context) => FavoriteBloc(getIt.get<FavoriteRepoImpl>())
+        ..add(FetchFavoriteDataEvent()),
+      child: const FavoritesBodyView(),
     );
   }
 }

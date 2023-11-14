@@ -5,4 +5,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class FavoritesRepo {
   Future<Either<FirestoreFailure, List<FavoritesModel>>> fetchFavoriteData();
+  Future<Either<FirestoreFailure, void>> removeFavoriteData({id});
 }

@@ -1,5 +1,5 @@
 class FavoritesModel {
-  String? title, image, author, description,id;
+  String? title, image, author, description, id, review;
   num? averageRating;
   bool? isFavorite;
 
@@ -11,6 +11,7 @@ class FavoritesModel {
     this.isFavorite,
     this.title,
     this.id,
+    this.review,
   });
 
   FavoritesModel.fromJson(Map<String, dynamic> json) {
@@ -24,6 +25,7 @@ class FavoritesModel {
     isFavorite = json["isFavorite"];
     title = json["title"];
     id = json["id"];
+    review = json["review"];
   }
 
   Map<String, dynamic> toJson() {
@@ -34,7 +36,8 @@ class FavoritesModel {
       'image': image,
       'isFavorite': isFavorite,
       'title': title,
-      'id':id,
+      'id': id,
+      'review':review,
     };
   }
 }

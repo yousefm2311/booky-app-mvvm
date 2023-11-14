@@ -7,6 +7,8 @@ import 'package:bookly_full_app_mvvm/features/auth/presentition/views/reset_pass
 import 'package:bookly_full_app_mvvm/features/books_details_view/presentition/views/books_details_view.dart';
 import 'package:bookly_full_app_mvvm/features/bottom_navi_bar/presentition/views/bottom_navi_bar_view.dart';
 import 'package:bookly_full_app_mvvm/features/bubbles_selection/presentition/views/bubbles_selection_view.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/data/models/favorites_model.dart';
+import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/book_details_favorites.dart';
 import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/favorites_view.dart';
 import 'package:bookly_full_app_mvvm/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_full_app_mvvm/features/home/data/repos/home_repo_impl.dart';
@@ -23,9 +25,8 @@ abstract class AppRoutes {
     GoRoute(
       path: homeView,
       builder: (context, state) => BlocProvider(
-        create: (context) => HomeBloc(getIt.get<HomeRepoImpl>()),
-        child: const HomeView()
-      ),
+          create: (context) => HomeBloc(getIt.get<HomeRepoImpl>()),
+          child: const HomeView()),
     ),
     GoRoute(
       path: splashView,
@@ -53,7 +54,15 @@ abstract class AppRoutes {
     ),
     GoRoute(
       path: booksDetailsView,
-      builder: (context, state) =>  BooksDetailsView(bookModel: state.extra as BookModel),
+      builder: (context, state) => BooksDetailsView(
+        bookModel: state.extra as BookModel,
+      ),
+    ),
+    GoRoute(
+      path: booksDetailsFavoriteView,
+      builder: (context, state) => BooksDetailsFavoriteView(
+        favoritesModel: state.extra as FavoritesModel,
+      ),
     ),
     GoRoute(
       path: resetPasswordView,
@@ -79,6 +88,7 @@ abstract class AppRoutes {
   static String splashView = '/';
   static String homeView = '/homeView';
   static String booksDetailsView = '/booksDetailsView';
+  static String booksDetailsFavoriteView = '/booksDetailsFavoriteView';
   static String loginView = '/loginView';
   static String resetPasswordView = '/resetPasswordView';
   static String registerView = '/registerView';
