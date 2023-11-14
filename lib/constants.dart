@@ -5,7 +5,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 
+var uId = localStorage.getData(key: 'uId');
+
 final CollectionReference userCollectionRef =
+    FirebaseFirestore.instance.collection('users');
+
+final CollectionReference favoritesCollectionRef =
     FirebaseFirestore.instance.collection('users');
 
 LocalStorage localStorage = LocalStorage();

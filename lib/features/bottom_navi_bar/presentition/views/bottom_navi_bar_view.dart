@@ -17,11 +17,11 @@ class BottomNaviBarView extends StatefulWidget {
 
 class _BottomNaviBarViewState extends State<BottomNaviBarView> {
   int count = 0;
-  List<Widget> screens = const [
-    HomeView(),
-    FavoritesView(),
-    SearchView(),
-    ProfileView()
+  List<Widget> screens = [
+    const HomeView(),
+    const FavoritesView(),
+    const SearchView(),
+    const ProfileView()
   ];
   @override
   Widget build(BuildContext context) {
