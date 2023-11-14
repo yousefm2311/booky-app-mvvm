@@ -10,7 +10,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(this.homeRepo) : super(FetchBooksHomeInitialState()) {
     on<HomeEvent>((event, emit) async {
       var list = localStorage.getListData(key: 'bubblesSelection');
-
       List<String> lastThreeCategory = list.sublist(list.length - 1);
       if (event is FetchBookHomeEvent) {
         emit(FetchBooksHomeLoadingState());

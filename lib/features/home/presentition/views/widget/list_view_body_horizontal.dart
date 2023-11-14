@@ -48,7 +48,9 @@ class ListViewBodyHorizontal extends StatelessWidget {
         } else if (state is FetchBookHomeListViewFailureState) {
           return ErrorDemoWidget(error: state.errorMessage);
         } else {
-          return const CustomLoadingIndicator(color: Colors.black);
+          return SizedBox(
+              height: MediaQuery.sizeOf(context).height * .23,
+              child: const CustomLoadingIndicator(color: Colors.black));
         }
       },
     );

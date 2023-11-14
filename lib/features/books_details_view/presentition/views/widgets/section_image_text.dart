@@ -1,3 +1,4 @@
+import 'package:bookly_full_app_mvvm/core/utils/assets.dart';
 import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_image.dart';
 import 'package:bookly_full_app_mvvm/features/home/data/models/book_model/book_model.dart';
@@ -19,7 +20,8 @@ class SectionImageText extends StatelessWidget {
             child: SizedBox(
                 height: MediaQuery.sizeOf(context).height * .3,
                 child: CustomImageView(
-                    imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail,
+                    imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                        AssetsData.errorImage,
                     aspectRatio: 5 / 7))),
         const SizedBox(height: 20.0),
         Text(bookModel.volumeInfo.title.toString(),

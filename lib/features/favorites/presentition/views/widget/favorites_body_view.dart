@@ -1,6 +1,6 @@
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
-import 'package:bookly_full_app_mvvm/core/utils/styles.dart';
+import 'package:bookly_full_app_mvvm/core/widgets/custom_error_widget.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_full_app_mvvm/core/widgets/error_widget.dart';
 import 'package:bookly_full_app_mvvm/features/favorites/presentition/view_model/favorite_bloc/favorite_bloc.dart';
@@ -18,16 +18,9 @@ class FavoritesBodyView extends StatelessWidget {
       builder: (context, state) {
         if (state is FetchFavoriteDataSuccessState) {
           return state.favoriteModel.isEmpty
-              ? Center(
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                      const Icon(CupertinoIcons.heart_slash_fill, size: 60.0),
-                      const SizedBox(height: 20.0),
-                      Text('Favorites is empty',
-                          style:
-                              Styles.textStyle22.copyWith(color: Colors.black))
-                    ]))
+              ? const CustomErrorWidget(
+                  icon: CupertinoIcons.heart_slash_fill,
+                  title: 'Favorites is empty')
               : Padding(
                   padding: const EdgeInsets.only(bottom: 20.0, top: 10.0),
                   child: ListView.separated(

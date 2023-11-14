@@ -4,7 +4,7 @@ import 'package:bookly_full_app_mvvm/core/utils/icon_broken.dart';
 import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/favorites_view.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/views/home_view.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/view/profile_view.dart';
-import 'package:bookly_full_app_mvvm/features/search/presentition/view/search_view.dart';
+import 'package:bookly_full_app_mvvm/features/search/presentition/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -34,40 +34,46 @@ class _BottomNaviBarViewState extends State<BottomNaviBarView> {
         ),
       ),
       body: screens[count],
-      bottomNavigationBar: Container(
-        color: AppColors.kPrimaryColor,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GNav(
-            onTabChange: (value) {
-              setState(() {
-                count = value;
-              });
-            },
-            backgroundColor: AppColors.kPrimaryColor,
-            tabBackgroundColor: Colors.grey.shade800,
-            color: Colors.grey.shade500,
-            activeColor: Colors.white,
-            padding: const EdgeInsets.all(12.0),
-            gap: 8,
-            tabs: const [
-              GButton(
-                icon: IconBroken.Home,
-                text: 'Home',
-              ),
-              GButton(
-                icon: IconBroken.Heart,
-                text: 'Favorites',
-              ),
-              GButton(
-                icon: IconBroken.Search,
-                text: 'Search',
-              ),
-              GButton(
-                icon: IconBroken.Profile,
-                text: 'Profile',
-              ),
-            ],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10.0, bottom: 4.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.kPrimaryColor,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GNav(
+              onTabChange: (value) {
+                setState(() {
+                  count = value;
+                });
+              },
+              backgroundColor: AppColors.kPrimaryColor,
+              tabBackgroundColor: Colors.grey.shade800,
+              color: Colors.grey.shade500,
+              activeColor: Colors.white,
+              padding: const EdgeInsets.all(12.0),
+              gap: 8,
+              tabs: const [
+                GButton(
+                  icon: IconBroken.Home,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: IconBroken.Heart,
+                  text: 'Favorites',
+                ),
+                GButton(
+                  icon: IconBroken.Search,
+                  text: 'Search',
+                ),
+                GButton(
+                  icon: IconBroken.Profile,
+                  text: 'Profile',
+                ),
+              ],
+            ),
           ),
         ),
       ),
