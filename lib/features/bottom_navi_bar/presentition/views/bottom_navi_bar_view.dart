@@ -27,6 +27,7 @@ class _BottomNaviBarViewState extends State<BottomNaviBarView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: Image.asset(
           AssetsData.logo1,

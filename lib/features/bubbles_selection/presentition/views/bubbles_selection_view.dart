@@ -36,7 +36,9 @@ class _BubbleSelectionState extends State<BubbleSelection> {
               backgroundColor: Colors.white,
               iconTheme: const IconThemeData(color: Colors.black),
             )
-          : AppBar(),
+          : AppBar(
+              backgroundColor: Colors.white,
+            ),
       body: SafeArea(
         child: Stack(
           children: <Widget>[

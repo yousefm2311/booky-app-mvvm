@@ -25,8 +25,11 @@ class GridViewNewsetSeller extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  pushRouter(AppRoutes.booksDetailsView, context,
-                      extra: state.books[index],);
+                  pushRouter(
+                    AppRoutes.booksDetailsView,
+                    context,
+                    extra: state.books[index],
+                  );
                 },
                 child: GridViewItems(bookModel: state.books[index]),
               );
