@@ -1,3 +1,4 @@
+import 'package:bookly_full_app_mvvm/constants.dart';
 import 'package:bookly_full_app_mvvm/core/utils/assets.dart';
 import 'package:bookly_full_app_mvvm/core/utils/functions/navigator.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
@@ -12,8 +13,24 @@ import 'package:bookly_full_app_mvvm/features/home/presentition/view_model/home_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ListViewBodyHorizontal extends StatelessWidget {
+class ListViewBodyHorizontal extends StatefulWidget {
   const ListViewBodyHorizontal({super.key});
+
+  @override
+  State<ListViewBodyHorizontal> createState() => _ListViewBodyHorizontalState();
+}
+
+class _ListViewBodyHorizontalState extends State<ListViewBodyHorizontal> {
+  @override
+  void initState() {
+    super.initState();
+    if (reSelected = true) {
+      setState(() {
+        // BlocProvider.of<HomeBloc>(context).add(FetchBookHomeListViewEvent());
+        BlocProvider.of<HomeBloc>(context).add(FetchBookHomeEvent());
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

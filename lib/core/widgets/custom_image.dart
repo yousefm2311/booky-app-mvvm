@@ -25,7 +25,9 @@ class CustomImageView extends StatelessWidget {
           );
         },
         imageUrl: imageUrl,
-        placeholder: (context, url) => const CustomLoadingIndicator(color: Colors.black,),
+        placeholder: (context, url) => const CustomLoadingIndicator(
+          color: Colors.black,
+        ),
         imageBuilder: (context, imageProvider) => Container(
           margin: const EdgeInsets.only(right: 14),
           decoration: BoxDecoration(

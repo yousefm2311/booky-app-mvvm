@@ -53,8 +53,8 @@ List<ModelBubbles> listBubbles(context) {
         text: 'Computer Science',
         top: height * .44,
         left: width * .03,
-        width: width * .48,
-        height: width * .48),
+        width: width * .4,
+        height: width * .4),
     ModelBubbles(
         color: AppColors.kColor_2,
         text: 'Economics',
@@ -72,7 +72,7 @@ List<ModelBubbles> listBubbles(context) {
     ModelBubbles(
         color: AppColors.kColor_3,
         text: 'Self-Help',
-        top: height * .7,
+        top: height * .65,
         left: width * .01,
         width: width * .26,
         height: width * .26),

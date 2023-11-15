@@ -1,7 +1,13 @@
 class AuthModel {
-  String? uId, email, name, image;
+  String? uId, email, name, image, bio;
 
-  AuthModel({this.uId, this.email, this.name, this.image});
+  AuthModel({
+    this.uId,
+    this.email,
+    this.name,
+    this.image,
+    this.bio,
+  });
 
   AuthModel.fromJson(Map<String, dynamic> json) {
     if (json.isEmpty) {
@@ -11,6 +17,7 @@ class AuthModel {
     email = json["email"];
     name = json["name"];
     image = json["image"];
+    bio = json["bio"];
   }
 
   Map<String, dynamic> toJson() {
@@ -19,6 +26,7 @@ class AuthModel {
       'email': email,
       'name': name,
       'image': image,
+      'bio': bio,
     };
   }
 }

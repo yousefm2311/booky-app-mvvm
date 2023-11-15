@@ -24,8 +24,8 @@ class FireStoreUser {
         .collection('favorites')
         .doc(favoritesModel.id)
         .set(favoritesModel.toJson())
-        .then((value) {
-    }).catchError((error) {
+        .then((value) {})
+        .catchError((error) {
       if (kDebugMode) {
         print(error.toString());
       }
@@ -47,7 +47,7 @@ class FireStoreUser {
     }
   }
 
-  Future<void> removeFavoritesDataFromFirebase( id) async {
+  Future<void> removeFavoritesDataFromFirebase(id) async {
     try {
       return await favoritesCollectionRef
           .doc(uId)
@@ -57,5 +57,9 @@ class FireStoreUser {
     } catch (e) {
       throw e.toString();
     }
+  }
+
+  Future updateProfile(String uId, AuthModel authModel) async {
+    return await userCollectionRef.doc(uId).update(authModel.toJson());
   }
 }

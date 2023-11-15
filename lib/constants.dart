@@ -7,6 +7,10 @@ final FirebaseAuth auth = FirebaseAuth.instance;
 
 var uId = localStorage.getData(key: 'uId');
 
+bool reSelected = false;
+
+bool pressed = false;
+
 final CollectionReference userCollectionRef =
     FirebaseFirestore.instance.collection('users');
 

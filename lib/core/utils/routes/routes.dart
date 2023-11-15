@@ -14,7 +14,7 @@ import 'package:bookly_full_app_mvvm/features/home/data/models/book_model/book_m
 import 'package:bookly_full_app_mvvm/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/view_model/home_bloc/home_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/views/home_view.dart';
-import 'package:bookly_full_app_mvvm/features/profile/presentition/view/profile_view.dart';
+import 'package:bookly_full_app_mvvm/features/profile/presentition/views/profile_view.dart';
 import 'package:bookly_full_app_mvvm/features/search/presentition/views/search_view.dart';
 import 'package:bookly_full_app_mvvm/features/splash/presentition/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,7 +50,9 @@ abstract class AppRoutes {
     ),
     GoRoute(
       path: bubblesSelectionView,
-      builder: (context, state) => const BubbleSelection(),
+      builder: (context, state) =>  const BubbleSelection(
+        
+      ),
     ),
     GoRoute(
       path: booksDetailsView,

@@ -25,30 +25,29 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: TextFormField(
-        onChanged: onChanged,
-        keyboardType: textInputType,
-        style: Styles.textStyle16,
-        obscureText: obscureText,
-        validator: validator,
-        controller: controller,
-        decoration: InputDecoration(
-            hintText: hintText,
-            prefixIcon: prefixIcon,
-            hintStyle: Styles.textStyle14,
-            fillColor: AppColors.kGreyColor,
-            suffixIcon: suffixIcon,
-            filled: true,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: const BorderSide(color: Colors.white, width: 1),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: const BorderSide(color: Colors.white, width: 1),
-            )),
-      ),
-    );
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: TextFormField(
+          onChanged: onChanged,
+          keyboardType: textInputType,
+          style: Styles.textStyle16,
+          obscureText: obscureText,
+          validator: validator,
+          controller: controller,
+          decoration: InputDecoration(
+              hintText: hintText,
+              prefixIcon: prefixIcon,
+              hintStyle: Styles.textStyle14,
+              fillColor: AppColors.kGreyColor,
+              suffixIcon: suffixIcon,
+              filled: true,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.0),
+                borderSide: const BorderSide(color: Colors.white, width: 1),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.0),
+                borderSide: const BorderSide(color: Colors.white, width: 1),
+              )),
+        ));
   }
 }

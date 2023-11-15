@@ -28,6 +28,7 @@ class BottomSheetView extends StatelessWidget {
                 .then((value) {
               pushReplacementRouter(AppRoutes.bottomNaviBarView, context);
             });
+            reSelected = true;
           }
         },
       ),

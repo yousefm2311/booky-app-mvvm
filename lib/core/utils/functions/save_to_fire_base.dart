@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 void saveToFireStore(UserCredential user, {nameController}) async {
   AuthModel authModel = AuthModel(
     uId: user.user!.uid,
+    bio: '',
     email: user.user!.email,
     name: nameController != null && nameController.text.isNotEmpty
         ? nameController.text
@@ -31,3 +32,5 @@ void saveFavoritesToFireStore(BookModel bookModel, bool isFavorites) async {
   );
   await FireStoreUser().addFavoriteToFireStore(favoritesModel);
 }
+
+

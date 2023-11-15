@@ -3,7 +3,7 @@ import 'package:bookly_full_app_mvvm/core/utils/colors.dart';
 import 'package:bookly_full_app_mvvm/core/utils/icon_broken.dart';
 import 'package:bookly_full_app_mvvm/features/favorites/presentition/views/favorites_view.dart';
 import 'package:bookly_full_app_mvvm/features/home/presentition/views/home_view.dart';
-import 'package:bookly_full_app_mvvm/features/profile/presentition/view/profile_view.dart';
+import 'package:bookly_full_app_mvvm/features/profile/presentition/views/profile_view.dart';
 import 'package:bookly_full_app_mvvm/features/search/presentition/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
