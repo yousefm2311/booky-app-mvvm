@@ -1,11 +1,23 @@
 # bookly_full_app_mvvm
 
-MVVM structure 
+## MVVM structure 
+
+
 Bloc state management 
+
+
 Dio Package
+
+
 Firebase 
+
+
 Handling All error 
+
+
 shared preferences 
+
+
 
 ![Screenshot_1700487184](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/f1dbcf8e-9722-4b4a-8594-ed43ef68644b) ![Screenshot_1700487224](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/2b956c46-ec09-480e-9cb3-bdeb8d518113) ![Screenshot_1700487199](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/ee0d5168-fb72-4976-8e71-8d3d2aeb86e6) ![Screenshot_1700487296](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/c5df5fde-a762-4fa4-a2ce-d893ea48866b)
 ![Screenshot_1700487291](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/1ad2e4a0-18ce-4dd7-b1b3-6c34dd6fbc54)
