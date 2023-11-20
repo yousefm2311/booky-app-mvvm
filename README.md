@@ -14,3 +14,4 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+![splash screen](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/33d1d6ff-9a4e-4322-b5af-2286def3832e)
