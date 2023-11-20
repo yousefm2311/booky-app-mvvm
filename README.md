@@ -37,3 +37,8 @@ shared preferences
   <img src="https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/4d2bd602-0d96-40ee-a49b-0d9856844ccb" alt="Screenshot_1700487261" width="30%">
 </div>
 
+<div align="center">
+  <img src="https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/372d8a6e-5d17-474c-b6a4-57486f24137c" alt="Screenshot_1700487281" width="30%">
+  <img src="https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/7b69f451-1df9-4122-ba91-5b5fc6c0fc36" alt="Screenshot_1700487267" width="30%">
+</div>
+
