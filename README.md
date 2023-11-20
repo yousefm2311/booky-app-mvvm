@@ -1,4 +1,4 @@
-# bookly_full_app_mvvm
+# BOOKLY-APP(MVVM)
 
 ## MVVM structure 
 
