@@ -1,19 +1,11 @@
 # bookly_full_app_mvvm
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+MVVM structure
+Bloc state management
+Dio Package
+Firebase 
+Handling All error
+shared preferences
 
 ![Screenshot_1700487184](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/f1dbcf8e-9722-4b4a-8594-ed43ef68644b) ![Screenshot_1700487224](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/2b956c46-ec09-480e-9cb3-bdeb8d518113) ![Screenshot_1700487199](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/ee0d5168-fb72-4976-8e71-8d3d2aeb86e6) ![Screenshot_1700487296](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/c5df5fde-a762-4fa4-a2ce-d893ea48866b)
 ![Screenshot_1700487291](https://github.com/yousefm2311/booky-app-mvvm/assets/95827005/1ad2e4a0-18ce-4dd7-b1b3-6c34dd6fbc54)
