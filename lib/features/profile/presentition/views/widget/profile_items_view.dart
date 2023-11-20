@@ -4,6 +4,7 @@ import 'package:bookly_full_app_mvvm/core/utils/icon_broken.dart';
 import 'package:bookly_full_app_mvvm/core/utils/routes/routes.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/view_model/profile_bloc/profile_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/view_model/profile_bloc/profile_event.dart';
+import 'package:bookly_full_app_mvvm/features/profile/presentition/view_model/profile_bloc/profile_state.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/views/widget/custom_dialog_edit_profile.dart';
 import 'package:bookly_full_app_mvvm/features/auth/data/models/auth_model.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/views/widget/container_info.dart';
@@ -15,11 +16,12 @@ class ProfileItemsView extends StatelessWidget {
   const ProfileItemsView({
     super.key,
     required this.authModel,
-    required this.bloc,
+    required this.bloc, required this.state,
   });
 
   final AuthModel authModel;
   final ProfileBloc bloc;
+  final ProfileState state;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class ProfileItemsView extends StatelessWidget {
                     context: context,
                     builder: (context) {
                       return CustomDialog(
+                        state: state,
                         bloc: bloc,
                         authModel: authModel,
                       );

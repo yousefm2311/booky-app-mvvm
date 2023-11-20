@@ -17,6 +17,7 @@ import 'package:bookly_full_app_mvvm/features/home/presentition/views/home_view.
 import 'package:bookly_full_app_mvvm/features/profile/presentition/views/profile_view.dart';
 import 'package:bookly_full_app_mvvm/features/search/presentition/views/search_view.dart';
 import 'package:bookly_full_app_mvvm/features/splash/presentition/view/splash_view.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -50,9 +51,7 @@ abstract class AppRoutes {
     ),
     GoRoute(
       path: bubblesSelectionView,
-      builder: (context, state) =>  const BubbleSelection(
-        
-      ),
+      builder: (context, state) => const BubbleSelection(),
     ),
     GoRoute(
       path: booksDetailsView,
@@ -74,16 +73,41 @@ abstract class AppRoutes {
       ),
     ),
     GoRoute(
-        path: loginView,
-        builder: (context, state) => BlocProvider(
-              create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
-              child: const LoginView(),
-            )),
+      path: loginView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
+        child: const LoginView(),
+      ),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: BlocProvider(
+          create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
+          child: const LoginView(),
+        ),
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(
+                opacity: CurvedAnimation(
+                    parent: animation, curve: Curves.fastLinearToSlowEaseIn),
+                child: child),
+      ),
+    ),
     GoRoute(
       path: registerView,
       builder: (context, state) => BlocProvider(
         create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
         child: const RegisterView(),
+      ),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        child: BlocProvider(
+          create: (context) => AuthBloc(getIt.get<AuthRepoImpl>()),
+          child: const RegisterView(),
+        ),
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(
+                opacity: CurvedAnimation(
+                    parent: animation, curve: Curves.fastLinearToSlowEaseIn),
+                child: child),
       ),
     ),
   ]);

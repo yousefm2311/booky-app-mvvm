@@ -15,6 +15,7 @@ class ProfileViewBody extends StatelessWidget {
       builder: (context, state) {
         if (state is GetProfileDataSuccessState) {
           return ProfileItemsView(
+            state: state,
             authModel: state.authModel,
             bloc: BlocProvider.of<ProfileBloc>(context),
           );

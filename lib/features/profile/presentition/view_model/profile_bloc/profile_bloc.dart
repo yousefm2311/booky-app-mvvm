@@ -52,6 +52,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           });
         }
       } else if (event is UpdateProfileEvent) {
+        emit(UpdateProfileLoadingState());
         try {
           if (image != null) {
             await firebase_storage.FirebaseStorage.instance
@@ -92,6 +93,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
               add(GetProfileDataEvent());
             });
           }
+          emit(UpdateProfileSuccessState());
         } catch (e) {
           emit(UpdateProfileFailureState(errorMessage: e.toString()));
         }

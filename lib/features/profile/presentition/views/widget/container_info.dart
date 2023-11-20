@@ -24,7 +24,7 @@ class ContainerInfo extends StatelessWidget {
           ),
           child: CustomImageView(
               imageUrl: authModel.image ?? AssetsData.errorImage,
-              aspectRatio: .9),
+              aspectRatio: 0.9),
         ),
         const SizedBox(height: 20.0),
         Text(

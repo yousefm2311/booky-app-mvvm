@@ -9,6 +9,7 @@ import 'package:bookly_full_app_mvvm/core/widgets/text_form_field.dart';
 import 'package:bookly_full_app_mvvm/features/auth/data/models/auth_model.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/view_model/profile_bloc/profile_bloc.dart';
 import 'package:bookly_full_app_mvvm/features/profile/presentition/view_model/profile_bloc/profile_event.dart';
+import 'package:bookly_full_app_mvvm/features/profile/presentition/view_model/profile_bloc/profile_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
@@ -19,9 +20,11 @@ class CustomDialog extends StatefulWidget {
     super.key,
     required this.bloc,
     required this.authModel,
+    required this.state,
   });
 
   final ProfileBloc bloc;
+  final ProfileState state;
   final AuthModel authModel;
 
   @override
@@ -94,7 +97,9 @@ class _CustomDialogState extends State<CustomDialog> {
                 widget.bloc.add(
                   UpdateProfileEvent(authModel: widget.authModel, context),
                 );
-                popRouter(context);
+                if (widget.state is GetProfileDataSuccessState) {
+                  popRouter(context);
+                }
                 customSnackBar(context, text: 'updated successfully');
               },
             )
