@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:192273553338:android:a1b2a60621ab78aa2caf83",
+        "mobilesdk_app_id": "1:192273553338:android:4b550b20f7bba9bc2caf83",
         "android_client_info": {
-          "package_name": "com.example.bookly_full_app_mvvm"
+          "package_name": "com.example.bookly_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "192273553338-vlehba4p6qs2796rar7a29i2otckppr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCCVqlKCAvpZvwb-qa_FKvrOoPIrh0fd_A"
@@ -20,7 +25,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192273553338-vlehba4p6qs2796rar7a29i2otckppr3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "192273553338-3k8smpfedse8oa26m6u5956sts3pr1oj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.booklyApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192273553338:android:a1b2a60621ab78aa2caf83",
+        "android_client_info": {
+          "package_name": "com.example.bookly_full_app_mvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192273553338-egq85k9lng5v9sp26tm82p09mo7p3blg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bookly_full_app_mvvm",
+            "certificate_hash": "e5cc23c1adb91d8739b5ec53906346374796fc00"
+          }
+        },
+        {
+          "client_id": "192273553338-vlehba4p6qs2796rar7a29i2otckppr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCVqlKCAvpZvwb-qa_FKvrOoPIrh0fd_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192273553338-vlehba4p6qs2796rar7a29i2otckppr3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "192273553338-3k8smpfedse8oa26m6u5956sts3pr1oj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.booklyApp"
+              }
+            }
+          ]
         }
       }
     }

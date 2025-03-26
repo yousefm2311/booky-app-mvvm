@@ -16,7 +16,7 @@ class GridViewItems extends StatelessWidget {
         CustomImageView(
           imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
               AssetsData.errorImage,
-          aspectRatio: 4.5 / 5.5,
+          aspectRatio: 1,
         ),
         const SizedBox(height: 10.0),
         Padding(
